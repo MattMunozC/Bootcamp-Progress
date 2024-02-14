@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1,h2,h3,h4{
+            text-align: center;
+        }
+        .texto-destacado,.texto-eliminado{
+
+        }
+        h1.fondo-destacado{
+            background-color: lightblue;    
+        }
+        p.fondo-destacado{
+            background-color: gray;
+        }
+        p:not(.fondo-destacado){
+            padding:10px;
+            margin-left: 30px;
+            margin-right: 30px;
+            border-style: dashed;
+            border-radius: 20px;
+            border-color: blue;
+            font-family: monospace;
+            text-align: justify;
+            text-indent: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="fondo-destacado">Aplicando CSS</h1>
+    <h1>Individual 1</h1>
+    <h2>Citas Célebres</h2>
+    <p>
+    "En vez de intentar producir un programa que simule
+    la mente adulta, ¿por qué no tratar de producir uno
+    que simule la mente del niño? Si ésta se sometiera
+    entonces a un curso educativo adecuado se obtendría
+    el cerebro de adulto"
+    <br><br>
+    <span class="texto-destacado">Alan Madison Turing</span>
+    </p>
+    <p class="fondo-destacado">
+    
+    "Un organismo debe tener un tamaño comparativamente
+    grande para poder beneficiarse de leyes relativamente
+    exactas"
+    <br><br>
+    <span class="texto-destacado">Erwin Schrödinger</span>
+    </p>
+    <p>
+    "Solo si escuchamos podremos aprender.
+    <span class="texto-destacado">Y escuchar es un acto de
+    silencio</span>; solo una mente serena pero
+    extraordinariamente activa puede aprender"
+    <br><br>
+    <span class="texto-destacado">Jiddu Krishnamurti</span>
+    </p>
+    </body>
+</html>

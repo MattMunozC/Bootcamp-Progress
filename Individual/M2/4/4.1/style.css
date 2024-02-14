@@ -1,0 +1,16 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+.my-section{
+    background-color: rgb(0, 255, 149);
+}
+section:hover{
+    background-color: white;
+
+}
+footer{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: gray;
+    color:white;
+    text-align: center;
+}

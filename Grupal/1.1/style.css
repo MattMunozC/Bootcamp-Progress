@@ -1,0 +1,23 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightblue;
+}
+footer{
+    border-top: 1px;
+    border-color: black;
+    border-top-style: double
+}
+#title{
+    background-color: blue;
+    text-align: center;
+    font-size: 300%;
+    display: grid;
+    align-content: center;
+    width: 200px;
+    aspect-ratio: 36/9;
+    color:white;
+    text-shadow: 2px 2px 15px rgb(5, 48, 122);
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+
+}

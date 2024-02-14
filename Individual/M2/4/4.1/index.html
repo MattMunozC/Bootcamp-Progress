@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Página de Enlaces</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Página de Enlaces</h1>
+        <p class="badge bg-secondary">Actualizado: 20-06-2020</p>
+    </header>
+    <nav class="navbar bg-dark border-bottom border-body fixed-top" >
+        <p>
+            <a href="#noticias-destacadas">Noticias Destacadas</a> |
+            <a href="#motores-de-busqueda">Sitios de Búsqueda</a> |
+            <a href="#diarios">Diarios</a> |-
+            <a href="#finanzas">Finanzas</a>
+
+        </p>
+    </nav>
+    <section class="my-section card" id="noticias-destacadas">
+        <h3>Noticias Destacadas del Día</h3>
+        <ul>
+            <li>
+                <p>[07-06-2020 15:22] Noticia 1.
+                    <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#ver-mas1">ver más</a>
+                </p>
+            </li>
+
+
+  
+            <li>
+                <p>[06-06-2020 16:03] Noticia 2.
+                    <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#ver-mas2"> ver más</a>
+                </p>
+            </li>
+
+
+        </ul>
+    </section>
+    <section class="my-section card" id="motores-de-busqueda">
+        <h3>Motores de Búsqueda</h3>
+        <ol>
+            <li>
+                <p>Buscar en <a href="https://google.com">
+                        Google</a></p>
+            </li>
+            <li>
+                <p>Buscar en <a href="https://duckduckgo.com/">
+                        Duck Duck Go</a></p>
+            </li>
+        </ol>
+    </section>
+    <section class="my-section card" id="diarios">
+        <h3>Diarios Nacionales e Internacionales</h3>
+        <ul>
+            <li>
+                <p>Revisar noticias en
+                    <a href="https://www.washingtonpost.com/">
+                        Washington Post</a>
+                </p>
+            </li>
+            <li>
+                <p>Revisar noticias en <a href="https://www.emol.com">
+                        Emol</a></p>
+            </li>
+        </ul>
+    </section>
+    <section class="my-section card" id="finanzas">
+        <h3>Sitios de Finanzas</h3>
+        <ul>
+            <li>
+                <p>Ir a <a href="https://www.bolsadesantiago.com/">
+                        Bolsa de Comercio de Santiago</a></p>
+            </li>
+            <li>
+                <p>Ir a <a href="https://es-us.finanzas.yahoo.com/">
+                        Yahoo Finanzas</a></p>
+            </li>
+        </ul>
+    </section>
+<!-- Modal -->
+<div class="modal fade" id="ver-mas1" tabindex="-1" aria-labelledby="Noticia1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="Noticia1">Muere Sebastián Piñera: el relato desconocido de una tragedia que enlutó a Chile</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <img src="https://www.latercera.com/resizer/d2Kkg_YsUgTwnehlj0VngP7o7-s=/900x600/filters:focal(3153x1103:3163x1093)/cloudfront-us-east-1.images.arcpublishing.com/copesa/GTLZM2BTHFF7HHQNERCKGO5LGM.jpg" alt="piñera" style="width: 100%;">
+            El exmandatario perdió la vida en un accidente en el lago Ranco que terminó movilizando a toda la institucionalidad existente para su rescate: desde su familia, amigos y exministros, hasta las Fuerzas Armadas, bomberos y un gobierno dirigido por quienes, en el pasado, fueron sus grandes adversarios.
+        </div>
+        <div class="modal-footer">
+            <h3>[07-06-2020 15:22]</h3>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal -->
+<div class="modal fade" id="ver-mas2" tabindex="-1" aria-labelledby="Noticia2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="Noticia2">Precio del dólar en Chile hoy, 12 de febrero: tipo de cambio y valor en pesos chilenos</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <img src="https://img.asmedia.epimg.net/resizer/XUE7A9G5W4NT6V2OZUgruMF6iDo=/644x362/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/C6KKSPNLYJBRFPIPDSG7BDRJMM.jpg" alt="Dinero" style="width: 100%;">
+            Muchos productos y servicios de primera necesidad llegan desde el extranjero, por lo que el valor se define por el precio del dólar. Esto determina lo que los ciudadanos terminan gastando en elementos básicos y en todo tipo de productos.
+
+Lo anterior se entiende, ya que esta moneda siempre ha sido uno de los principales índices de la actividad económica de los diferentes países, en mayor medida por el intercambio comercial a nivel global.
+        </div>
+        <div class="modal-footer">
+            <h3>[06-06-2020 16:03]</h3>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <br>
+    <aside>
+        Versión en Español
+    </aside>
+    <br>
+    <footer>
+        2019-2020 python group awakelab
+    </footer>
+</body>
+
+</html>

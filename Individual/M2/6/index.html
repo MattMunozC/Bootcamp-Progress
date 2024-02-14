@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+</head>
+
+<body>
+    <div>
+        <a href="https://media.tenor.com/PwIc-aiDDqcAAAAM/rat-rat-spinning-horizontaly.gif" data-fancybox="gallery">
+            <img alt="" width="300" height="200" src="https://media.tenor.com/PwIc-aiDDqcAAAAM/rat-rat-spinning-horizontaly.gif" />
+        </a>
+        <button onClick="showvid()">ver video</button>
+        <button onClick="showmap()">ver mapa</button>
+    </div>
+    <script>
+        function showmap(){
+            Fancybox.show([
+            {
+                src: "https://www.google.com/maps/@-35.7938615,-70.1455632,16z",
+                width: 800,
+                height: 600,
+            },
+            ]);
+        }
+        function showvid(){
+                Fancybox.show([
+            {
+                src: "https://www.youtube.com/watch?v=3X-iqFRGqbc",
+                width: 640,
+                height: 360,
+            },
+            ]);
+        }
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Thumbs: {
+                type: "modern"
+            }
+        });    
+
+    </script>
+</body>
+
+</html>

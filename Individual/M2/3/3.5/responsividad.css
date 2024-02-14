@@ -1,0 +1,33 @@
+
+@media only screen and (max-width:400px) {
+    .container {
+        grid-template-columns: 1fr;
+        width: 80%;
+    }
+    nav{
+        font-size:10px
+    }
+    .socials>a>svg{
+        height: 10px;
+    }
+}
+
+@media only screen and (min-width:401px) {
+    .container {
+
+        grid-template-columns: 1fr 1fr;
+    }
+    .socials>a>svg{
+        height: 30px;
+    }
+}
+
+@media only screen and (min-width:801px) {
+    .container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
