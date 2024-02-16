@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .typing{
+           animation: flickering 0.5s infinite; 
+        }
+        @keyframes flickering{
+            0%{
+                border-right-color: black;
+                border-right-width: 1px;
+                border-right-style: solid;
+            }
+            100%{
+                border-right-color: black;
+                border-right-width: 0px;
+                border-right-style: solid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Soy <span id="movable-text" class="typing"></span></h1>
+</body>
+<script type="module">
+const span=document.getElementById("movable-text")
+const text=["desarrollador","Inteligente","confiable","racista"]
+var text_pivot=0
+var pivot=0
+var direction=1;
+var intervalID=setInterval(()=>{
+    if(pivot>=0){
+        span.innerText=text[text_pivot].slice(0,pivot)
+    }
+    pivot+=direction
+    if(pivot>text[text_pivot].length+5){
+        direction=-1
+    }else if(pivot==0-5){
+        direction=1
+        text_pivot+=1
+
+    }
+    if(text_pivot>=text.length){
+            text_pivot=0
+    }
+
+},200)
+</script>
+</html>
