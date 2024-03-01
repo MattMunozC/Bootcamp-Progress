@@ -15,11 +15,9 @@ def matrix_mul(m1,m2):
             row_result.append(row)
         result.append(row_result)
     return result
-
-
 matrix=((1,2,3),(-1,0,2))
 producto_escalar=prod(matrix[0],matrix[1])
 print(f"1. producto escalar: {producto_escalar}")
 matrix1=((5,2,1),(2,1,2),(4,1,3))
 matrix2=((1,4,2),(0,3,0),(2,1,3))
-print(f"2. Multiplicación de matrises: {matrix_mul(matrix1,matrix2)}")
+print(f"2. Multiplicación de matrises: \n {matrix_mul(matrix1,matrix2)}")
