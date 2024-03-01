@@ -1,37 +1,10 @@
-Grupal/Proyecto Grupal 1.rar
-Grupal/2.1/Grupal.rar
-Individual/M2/3/3.1/Actividad individual 1.docx
-Individual/M2/3/3.2/Ejercicio individual 3.2.docx
-Individual/M2/3/3.4/Actividad individual 3.4.docx
-Individual/M2/3/3.5/Ejercicio individual 3.5.rar
-Individual/M2/3/3.4/Actividad indivudal 3.4.rar
-Individual/M2/4/4.2/ejercicio individual 4.2.rar
-Individual/M2/4/4.1/Ejercicio individual 4.1.rar
-Grupal/.vscode
-Individual/M2/3/3.2/ejercicio individual 3.2.rar
-Individual/M2/3/3.3/Ejercicio individual 3.3.rar
-Individual/M2/3/3.5/.vscode
-Individual/M2/5/5.1/Ejercicio individual 5.1.docx
-Individual/M2/5/5.1/Ejercicio individual 5.1.rar
-Individual/M2/5/5.3/ejercicio individual 5.3.rar
-Individual/M2/5/5.2/ejercicio individual 5.2.rar
-Individual/M2/6/Ejercicio individual 6.rar
 curriculum
-Grupal/2.2/bootstrap-5.3.2-dist
-Grupal/2.2/img
 Desafios
 .venv
-Grupal/3.1/bootstrap-5.3.2-dist
-Grupal/3.1/img
-Individual/M3/1/Ejercicio individual 1.docx
-Individual/M2/3/3.1/Actividad individual 3.1.rar
-Individual/M2/2/2.1/ejercicio individual 2.1.rar
-Lab/input.txt
-Grupal/M2/1/Proyecto Grupal 1.rar
-Grupal/M2/2/2.1/Grupal.rar
-Grupal/M2/2/2.2/img/img.jpg.png
-Grupal/M2/3/3.1/img/logo.png
-Grupal\M2\2\2.2\bootstrap-5.3.2-dist
-Grupal\M2\3\3.1\bootstrap-5.3.2-dist
-Grupal/M3/1/Ejercicio Grupal 1.docx
-Grupal/M3/1/Ejercicio Grupal 1.rar
+*.rar
+*.docx
+*.txt
+*\bootstrap-5.3.2-dist\
+*\.vscode\
+*.png
+*.json
