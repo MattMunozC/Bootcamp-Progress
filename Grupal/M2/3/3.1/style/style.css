@@ -51,6 +51,15 @@ a{
     color: white;
     text-decoration: none;
 }
+td>img{
+    width: 50%;
+    position: relative;
+    left: -120px;
+}
+h1{
+    text-indent: 0px;
+}
+
 @media (orientation:landscape) {
     h2{
         font-size: 3vh;
@@ -66,4 +75,5 @@ a{
         display: grid;
         grid-template-columns: repeat(4,1fr);
     }
+
 }
