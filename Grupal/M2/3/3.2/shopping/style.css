@@ -1,0 +1,123 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(222,247,247);
+
+}
+.header{
+    background: rgb(255,132,8);
+    background: linear-gradient(180deg, rgba(255,132,8,1) 27%, rgba(255,8,8,1) 90%, rgba(255,8,8,1) 100%);
+    position: fixed;
+    top:0;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.092);
+    font-size: 2vh;
+}
+.logo{
+    height: 70%;
+    position: relative;
+    left: 0;
+}
+div#logo{
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 5%;
+    margin: 10px;
+}
+.logo-text{
+    color: white;
+    font-weight:bolder;
+    font-size: 50%;
+}
+.nav-bar{
+    display: flex;
+    position: fixed;
+    top: 0;
+    height: 10%;
+    right: 10px;
+    flex-direction: row;
+    width: 20%;
+}
+div.nav-option{
+    text-align: center;
+    margin-left: 5%;
+    height: 50%;
+    align-content: center;
+    position: relative;
+    top:50%;
+    transform: translate(0%,-25%);
+    text-decoration: none;
+    color: white;
+}
+.nav-option>a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-option>a:hover{
+    color:rgb(160, 4, 4);
+}
+.nav-bar{
+    right: 10%;
+}
+.shopping-car{
+    background: radial-gradient(circle, rgb(255, 0, 0) 20%, rgba(251,119,119,1) 100%);
+    position: fixed;
+    right: 0px;
+    width: 5%;
+    height: inherit;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px 0;
+    box-shadow: -3px 0 0 0 #69001F;
+}
+.shopping-car>a{
+    color:white;
+    text-decoration: none;
+    font-size: 1vw;
+    font-weight: bold;;
+}
+.shopping-car>svg{
+    height: 80%;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(211deg) brightness(104%) contrast(102%);
+}
+.content{
+    margin: 10px;
+}
+h1{
+    text-align: center;
+}
+h1>svg{
+    height: 50px;
+}
+table{
+    margin: 0 5% 0;
+    width: 90%;
+}
+thead{
+    background: radial-gradient(circle, rgb(255, 0, 0) 20%, rgba(251,119,119,1) 100%);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+tbody{
+    text-align: center;
+}
+button.pay{
+    position:absolute;
+    right: 0px;
+    margin-right: 5%;
+    background: radial-gradient(circle, rgb(255, 0, 0) 20%, rgba(251,119,119,1) 100%);
+    padding:20px 50px 20px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    line-height: 10px;
+}
