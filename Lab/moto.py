@@ -1,5 +1,14 @@
 from datetime import datetime
-class motocicleta:
+from abc import ABC,abstractmethod
+
+class vehiculo(ABC):
+    @abstractmethod
+    def arrancar(self):
+        pass
+    @abstractmethod
+    def detener(self):
+        pass
+class motocicleta(vehiculo):
     estado="nuevo"
     def __init__(self,color,matricula,combustible_litros,numero_ruedas,marca,modelo,fecha_fabricacion,velocidad_punta,peso,**kwargs):
         self.color=color
@@ -49,16 +58,16 @@ except:
 def repostar(self):
     self.cantidad_combustible()
     while 1:
-        cantidad=input("cuanto combustible va a repostar?")
-        if not cantidad.isdigit():
-            print("monto invalido")
-            continue
-        if int(cantidad)+self.combustible_litros>self.max_combustible:
-            print("Maximo excedido")
-            continue
-
-        self.combustible_litros+=int(cantidad)
-        break
+        try:
+            cantidad=input("cuanto combustible va a repostar?")
+            if not cantidad.isdigit(): raise ValueError("Monto invalido")
+            if int(cantidad)+self.combustible_litros>self.max_combustible: raise OverflowError("Maximo Excedido")
+            self.combustible_litros+=int(cantidad)
+            break
+        except ValueError as e:
+            print(e.args[0])
+        except OverflowError as e:
+            print(e.args[0])
     print(f"la moto {self.modelo} tiene {self.combustible_litros} litros en el estanque")
 def cantidad_combustible(self):
     print(f"Reporte de la motocicleta {self.modelo} marca {self.marca}")
@@ -70,4 +79,3 @@ motocicleta.repostar=repostar
 motocicleta.cantidad_combustible=cantidad_combustible
 
 moto.repostar()
-print(moto.combustible_litros)
