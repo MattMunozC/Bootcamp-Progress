@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Fenix</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="../js/logica.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div id="logo">        
+            <img class="logo" src="https://png.pngtree.com/png-clipart/20220714/original/pngtree-phoenix-bird-logo-with-flaming-fire-body-for-game-team-png-image_8357995.png" alt="logo">
+            <div class="logo-text">Proyecto Fénix</div>
+        </div>
+        <h2><i>"Lo que buscas lo tenemos"</i></h2>
+        <nav class="nav-bar">
+            <div class="nav-option"><a href="">Smarthphones</a></div>
+            <div class="nav-option"><a href="">Computadores</a></div>
+            <div class="nav-option"><a href="">Laptop</a></div>
+            <div class="nav-option">Ayuda</div>
+        </nav>
+    </header>
+    <div id="padding" style="height: 90px;width: 100%;"></div>
+    <details id="shopping-card">
+      <summary>Carro: <span id="shopping-counter">0</span> productos añadidos</summary>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Productos Añadidos</h5>
+          <table id="shopping-table">
+            <thead>
+              <tr>
+                <td>Producto</td>
+                <td>Cantidad</td>
+                <td>Subtotal</td>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <p class="card-text"></p>
+          <button type="button" class="btn btn-primary" onclick="window.location='/paying/index.html'">Pagar</button>
+        </div>
+      </div>
+  </details>
+    <section class="table-container">
+        <div class="wrapper">
+            <div class="smartphone">
+                <h2>iPhone 13 Pro</h2>
+                <img src="https://cellu.store/wp-content/uploads/2021/11/iphone-13-pro-silver-select.png" alt="">
+                <p><strong>Precio:</strong> $999</p>
+                <p><strong>Código:</strong> APPL-IPH13PRO</p>
+                <p><strong>Descripción:</strong> El iPhone 13 Pro es el último buque insignia de Apple...</p>
+                <div>
+                  <div class="many-wrapper">
+                    <button onclick="plus(this)">+</button>
+                    <input type="number" value="0" min="0" disabled>
+                    <button onclick="minus(this)">-</button>
+                    <button onclick="comprar(this)">Comprar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="smartphone">
+                <h2>Samsung Galaxy S21 Ultra</h2>
+                <img src="https://www.pcfactory.cl/public/landingpage/samsung-smartphones-galaxy-s21-ultra/img/S21_Ultra_Phantom_Black.png" alt="">
+                <p><strong>Precio:</strong> $1199</p>
+                <p><strong>Código:</strong> SAMS-GS21ULTRA</p>
+                <p><strong>Descripción:</strong> El Galaxy S21 Ultra es el tope de gama de Samsung...</p>
+                <div>
+                  <div class="many-wrapper">
+                    <button onclick="plus(this)">+</button>
+                    <input type="number" value="0" min="0" disabled>
+                    <button onclick="minus(this)">-</button>
+                    <button onclick="comprar(this)">Comprar</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="smartphone">
+                <h2>Google Pixel 6 Pro</h2>
+                <img src="https://falabella.scene7.com/is/image/Falabella/gsc_123930285_3786361_1?wid=800&hei=800&qlt=70" alt="">
+                <p><strong>Precio:</strong> $899</p>
+                <p><strong>Código:</strong> GOOG-PXL6PRO</p>
+                <p><strong>Descripción:</strong> El Pixel 6 Pro es el buque insignia de Google...</p>
+                <div>
+                  <div class="many-wrapper">
+                    <button onclick="plus(this)">+</button>
+                    <input type="number" value="0" min="0" disabled>
+                    <button onclick="minus(this)">-</button>
+                    <button onclick="comprar(this)">Comprar</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="smartphone">
+                <h2>OnePlus 9 Pro</h2>
+                <img src="https://m.media-amazon.com/images/I/61smwbhzBML._AC_SL1500_.jpg" alt="">
+                <p><strong>Precio:</strong> $969</p>
+                <p><strong>Código:</strong> ONEP-9PRO</p>
+                <p><strong>Descripción:</strong> El OnePlus 9 Pro es conocido por su pantalla Fluid AMOLED...</p>
+                <div >
+                  <div class="many-wrapper">
+                    <button onclick="plus(this)">+</button>
+                    <input type="number" value="0" min="0" disabled>
+                    <button onclick="minus(this)">-</button>
+                    <button onclick="comprar(this)">Comprar</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="smartphone">
+                <h2>Xiaomi Mi 11 Ultra</h2>
+                <img src="https://falabella.scene7.com/is/image/Falabella/112783316_1?wid=800&hei=800&qlt=70" alt="">
+                <p><strong>Precio:</strong> $999</p>
+                <p><strong>Código:</strong> XIAO-MI11ULTRA</p>
+                <p><strong>Descripción:</strong> El Mi 11 Ultra cuenta con una pantalla AMOLED...</p>
+                <div >
+                  <div class="many-wrapper">
+                    <button onclick="plus(this)">+</button>
+                    <input type="number" value="0" min="0" disabled>
+                    <button onclick="minus(this)">-</button>
+                    <button onclick="comprar(this)">Comprar</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="smartphone">
+                <h2>Sony Xperia 1 III</h2>
+                <img src="https://falabella.scene7.com/is/image/Falabella/113081121_1?wid=800&hei=800&qlt=70" alt="">
+                <p><strong>Precio:</strong> $1299</p>
+                <p><strong>Código:</strong> SONY-XPERIA1III</p>
+                <p><strong>Descripción:</strong> El Xperia 1 III ofrece una pantalla OLED 4K...</p>
+                <div >
+                  <div class="many-wrapper">
+                    <button onclick="plus(this)">+</button>
+                    <input type="number" value="0" min="0" disabled>
+                    <button onclick="minus(this)">-</button>
+                    <button onclick="comprar(this)">Comprar</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="smartphone">
+                <h2>Asus ROG Phone 5</h2>
+                <img src="https://falabella.scene7.com/is/image/Falabella/gsc_120461948_2678253_1?wid=800&hei=800&qlt=70" alt="">
+                <p><strong>Precio:</strong> $999</p>
+                <p><strong>Código:</strong> ASUS-ROGPHONE5</p>
+                <p><strong>Descripción:</strong> El ROG Phone 5 está diseñado para juegos...</p>
+                <div >
+                  <div class="many-wrapper">
+                    <button onclick="plus(this)">+</button>
+                    <input type="number" value="0" min="0" disabled>
+                    <button onclick="minus(this)">-</button>
+                    <button onclick="comprar(this)">Comprar</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="smartphone">
+                <h2>LG Velvet</h2>
+                <img src="https://www.lg.com/content/dam/channel/wcms/cl/images/celular/lmg910hmw_achlas_escl_cl_c/LMG910HMW_ACHLAS_ESCL_CL_C-450x450.jpg" alt="">
+                <p><strong>Precio:</strong> $699</p>
+                <p><strong>Código:</strong> LG-VELVET</p>
+                <p><strong>Descripción:</strong> El LG Velvet destaca por su diseño elegante y ergonómico...</p>
+                <div>
+                  <div class="many-wrapper">
+                    <button onclick="plus(this)">+</button>
+                    <input type="number" value="0" min="0" disabled>
+                    <button onclick="minus(this)">-</button>
+                    <button onclick="comprar(this)">Comprar</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="smartphone">
+                <h2>Motorola Edge+</h2>
+                <img src="https://clmoto.vtexassets.com/arquivos/ids/161825/jet-black_1x1px_01.png?v=638246053199870000" alt="">
+                <p><strong>Precio:</strong> $999</p>
+                <p><strong>Código:</strong> MOTO-EDGEPLUS</p>
+                <p><strong>Descripción:</strong> El Motorola Edge+ ofrece una pantalla OLED de 6.7 pulgadas...</p>
+                <div>
+                  <div class="many-wrapper">
+                    <button onclick="plus(this)">+</button>
+                    <input type="number" value="0" min="0" disabled>
+                    <button onclick="minus(this)">-</button>
+                    <button onclick="comprar(this)">Comprar</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="smartphone"> 
+                <h2>Realme GT 5G</h2>
+                <img src="https://i.linio.com/p/9a1f63640eb5a8879e1ff0430f1cc362.jpg" alt="">
+                <p><strong>Precio:</strong> $499</p>
+                <p><strong>Código:</strong> REALME-GT5G</p>
+                <p><strong>Descripción:</strong> El Realme GT 5G es una opción asequible con características premium...</p>
+                <div>
+                  <div class="many-wrapper">
+                    <button onclick="plus(this)">+</button>
+                    <input type="number" value="0" min="0" disabled>
+                    <button onclick="minus(this)">-</button>
+                    <button onclick="comprar(this)">Comprar</button>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+
+    </section>
+    <footer>
+        <h2>Distribuidores de</h2>
+        <div class="sponsor">
+            <a class="marca" href="https://www.acer.com/cl-es/"><img src="https://images.acer.com/is/content/acer/acer-4" alt="acer"></a>
+            <a class="marca" href="https://www.asus.com/cl/store/"><img src="https://dlcdnimgs.asus.com/images/logo/logo-002.svg" alt="asus"></a>
+            <a class="marca" href="https://www.hp.com/cl-es/shop/"><img src="https://d1pc5hp1w29h96.cloudfront.net/logo/default/LogoHPblue_1.svg" alt="" style="height: 50px;"></a>
+        </div>
+        <p>Copyright &copy; 2019-2020 -
+        Desarrollos de Landing Pages Inc.</p>
+    </footer>
+</body>
+
+</html>

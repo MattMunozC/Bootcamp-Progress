@@ -1,0 +1,135 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(204, 184, 246);
+}
+.header{
+    background-image: url("../Assets/360_F_484111532_W0WOkKeXQzF75XusA7R8e3llIDXqyCFm.jpg");
+    position: fixed;
+    top:0;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.092);
+    font-size: 2vh;
+}
+.header h2{
+    color: white;
+}
+.logo{
+    height: 70%;
+    position: relative;
+    left: 0;
+}
+div#logo{
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 5%;
+    margin: 10px;
+}
+.logo-text{
+    color: white;
+    font-weight:bolder;
+    font-size: 50%;
+}
+.nav-bar{
+    display: flex;
+    position: fixed;
+    top: 0;
+    height: 10%;
+    right: 10px;
+    flex-direction: row;
+    width: 20%;
+}
+div.nav-option{
+    text-align: center;
+
+    color: white;
+}
+.nav-option>a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-option>a:hover{
+    color:rgb(160, 4, 4);
+}
+.nav-bar{
+    right: 10%;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.table-container{
+    top:10%
+}
+.smartphone{
+    margin: 1%;
+    width: 97%;
+    border: 1%;
+    border-style: dashed;
+    border-color: rgba(255, 0, 0, 0.303);
+    border-radius: 10px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.smartphone>h2{
+    font-size:3vh;
+    background: linear-gradient(0deg, rgba(66,2,134,1) 0%, rgba(68,4,136,1) 7%, rgba(139,119,251,1) 100%);
+    color:white;
+    text-align: center;
+}
+.smartphone>img{
+    width: 50%;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+}
+.smartphone>div{
+    position: relative;
+    height: 10vh;
+    align-self: center;
+}
+
+header{
+    z-index: 1;
+}
+
+body{
+    overflow-x:hidden;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 100px 0px;
+}
+.wrapper input{
+    margin: 10px 0px 10px;
+}
+.wrapper>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.wrapper>div>div{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

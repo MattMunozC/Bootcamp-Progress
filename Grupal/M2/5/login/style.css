@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Madimi+One&display=swap');
+body{
+    background-image: url("../Assets/360_F_484111532_W0WOkKeXQzF75XusA7R8e3llIDXqyCFm.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0px;
+    font-family: "Madimi One", sans-serif;
+}
+.messages{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0px;
+    height: fit-content;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.259);
+    padding: 50px 20px 50px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    color: white;
+    animation: appear 100ms ease-in-out;
+}
+.wrapper input{
+    margin: 10px 0px 10px;
+}
+.wrapper button{
+    background-color: rgb(24, 24, 133);
+    color: white;
+    width: fit-content;
+    border: none;
+    padding: 10px;
+    align-self: flex-end;
+    border-radius: 10px;
+}
+.msg{
+    width: 70vh;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    animation: appear 100ms ease-in-out;
+}
+.msg-value{
+    text-align: center;
+}
+.error{
+    background-color: rgb(237, 107, 107);
+}
+.login{
+    background-color: rgb(107, 237, 155);
+}
+
+@keyframes appear {
+    0%{
+        position: relative;
+        top:-100px;
+        opacity: 0;
+    }
+    90%{
+        position: relative;
+        top:10px; 
+    }
+    100%{
+        position: relative;
+        top:0px;
+        opacity: 1;
+    }
+    
+}
