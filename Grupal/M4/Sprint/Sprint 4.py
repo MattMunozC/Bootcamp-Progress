@@ -3,6 +3,7 @@ import locale
 import random
 import re
 import json
+import inspect
 from pprint import pprint
 locale.setlocale(locale.LC_TIME,"es_ES")
 class NoPrivilegeError(Exception):
@@ -12,12 +13,13 @@ class NoArgumentFoundError(Exception):
     def __init__(self, *args: object) -> None:
         super().__init__(*args)
 class Proyecto():
-    def __init__(self,nombre,fecha_inicio=None) -> None:
+    def __init__(self,nombre,encargado=None,fecha_inicio=None) -> None:
         self.nombre=nombre
         self.presupuesto=0
         self.duracion=90
         self.miembros=[]
         self.fecha_inicio=fecha_inicio
+        self.encargado=encargado
         self.tareas=[]
     def getFechaTermino(self):
         return self.fecha_inicio+timedelta(days=self.duracion)
@@ -27,7 +29,7 @@ class Proyecto():
         else:
             self.duracion=nueva_duracion
     def agregarTareas(self,solicitante,nombre_tarea,duracion):
-        if type(solicitante)!=Gerente:
+        if type(solicitante)!=Gerente and (solicitante!=self.encargado or self.encargado!=None):
             raise NoPrivilegeError
         else:
             self.tareas.append(Tarea(nombre_tarea,duracion))
@@ -40,12 +42,12 @@ class Tarea(Proyecto):
             raise OverflowError("Tiempo de tarea excede la duracion del proyecto")
 class Usuario():
     contador=0
-    def __init__(self,nombre_completo,telefono,edad,sueldo=0,**kwargs):
+    def __init__(self,nombre_completo,telefono,edad,sueldo=0,password=None,**kwargs):
         self.nombre_usuario=Usuario.__username(nombre_completo)
         self.nombre_completo=nombre_completo
         self.telefono=telefono
         self.edad=edad
-        self.password=Usuario.createPassword(8)
+        if password==None: self.password=Usuario.createPassword(8)
         self.sueldo=sueldo
         self.additional_info={i:kwargs[i] for i in kwargs}
         self.id=Usuario.contador
@@ -158,9 +160,17 @@ class Obrero(Trabajador):
     def getSueldo(self):
         return super().getSueldo(Obrero.__modificador)
 class Empresa():
+
+#Empresa solo puede ser instanciada una vez
+    _self = None
+    def __new__(cls):
+        if cls._self is None:
+            cls._self = super().__new__(cls)
+        return cls._self
     def __init__(self):
         self.empleados=[]
         self.proyectos=[]
+        self.gerentes=[]
         self.cantidad_empleado_max=200
         self.tipo_empresa=""
         self.relog=RelogControl()
@@ -172,6 +182,11 @@ class Empresa():
             self.empleados.append(trabajador)
         else:
             raise NoPrivilegeError("los trabajadores no pueden agregar empleados")
+    def ingresaGerente(self,contratador:Usuario,gerente):
+        if type(contratador)==Dueño:
+            self.gerentes.append(gerente)
+        else:
+            raise NoPrivilegeError("los trabajadores no pueden agregar empleados")    
     def despedirEmpleado(self,despedidor:Usuario,empleado:Usuario):
         if despedidor.PuedeMandar(empleado):
             self.empleados.remove(empleado)
@@ -218,7 +233,56 @@ class Salida(RegistroRelog):
         self.usuario=usuario
         self.hora=hora
         self.status=status
-#PRUEBA
+
+
+def normalize(item:object):
+    if type(item)==datetime:
+        return {"day":item.day,"month":item.month,"year":item.year,"hour":item.hour,"minute":item.minute,"seconds":item.second}
+    if isinstance(item,Usuario):
+        return {key:normalize(value) for key,value in item.__dict__.items()}
+    else:
+        return item
+
+def extract(empresa:Empresa):
+    with open("empresa.json","w",encoding="utf-8") as archivo:
+        empleados=[{"type":type(i).__name__,"content":normalize(i)} for i in empresa.empleados]
+        entrada=[{"type":type(i).__name__,"content":{key:normalize(value) for key,value in i.__dict__.items()}} for i in empresa.relog.registro_ingresos]
+        salida=[{"type":type(i).__name__,"content":{key:normalize(value) for key,value in i.__dict__.items()}} for i in empresa.relog.registro_salidas]
+        dueño={"type":type(empresa.dueño).__name__,"content":{key:value for key,value in empresa.dueño.__dict__.items()}}
+        gerentes=[{"type":type(i).__name__,"content":normalize(i)} for i in empresa.gerentes]
+        serializable={}
+        for attribute,content in empresa.__dict__.items():
+            try:         
+                content={key:normalize(value) for key,value in content.__dict__.items()}
+                serializable[attribute]={"type":type(content).__name__,"content":content}
+            except:
+                serializable[attribute]=empresa.__dict__[attribute]
+        serializable["relog"]["content"]["registro_ingresos"]=entrada
+        serializable["relog"]["content"]["registro_salidas"]=salida
+        serializable["empleados"]=empleados
+        serializable["dueño"]=dueño
+        serializable["gerentes"]=gerentes
+        serializable["proyectos"]=[{"type":type(i).__name__,"content":{key:normalize(value) for key,value in i.__dict__.items()}} for i in empresa.proyectos]
+        empresa.serializable=serializable
+        json.dump(serializable,archivo,ensure_ascii=False,indent=4)  
+def load():
+    with open("empresa.json","r",encoding="utf-8") as archivo:
+        archivo=json.load(archivo)
+        propietario=archivo["dueño"]["content"]
+        propietario:Dueño=eval(archivo["dueño"]["type"])(*getargs(propietario,archivo["dueño"]["type"]))
+        empresa=propietario.crearEmpresa()
+        #esto es porque solo hay un gerente, nada más
+        gerente=archivo["gerentes"][0]["content"]
+        gerente:Gerente=eval(archivo["gerentes"][0]["type"])(*getargs(gerente,archivo["gerentes"][0]["type"]))
+        empresa.ingresaGerente(propietario,gerente)
+        empleados=[eval(archivo["empleados"][count]["type"])(*getargs(archivo["empleados"][count]["content"],archivo["empleados"][count]["type"])) for count,_ in enumerate(archivo["empleados"])]
+        for i in empleados:
+            empresa.ingresarEmpleado(gerente,i)
+        gerente.CrearProyecto(empresa,archivo["proyectos"][0]["content"]["nombre"])
+    return empresa
+#obtiene los parametros necesarios para armar la clase
+def getargs(classdict:dict,classname:str):
+    return [classdict[i] for i in inspect.getfullargspec(eval(classname).__init__).args[1::]]       
 #HERENCIA
 #Dueño, Gerente y Trabajador son hijos de usuario
 #Obrero y Operador son hijos de Trabajador
@@ -238,6 +302,7 @@ gerente=Gerente("Juan Perez","12345678",58,1_000_000)
 #solo los gerentes pueden crear proyectos
 gerente.CrearProyecto(empresa,"lucho a luchin")
 
+empresa.ingresaGerente(propietario,gerente)
 #creamos un trabajador que es un operador
 harry=Operador("Harry Housen","13456723",32,300_000)
 #el gerente ingresa a un nuevo empleado, solo los gerentes y dueños pueden hacer esto
@@ -272,18 +337,17 @@ finally:
     empresa.ingresarEmpleado(gerente,nuevo_operador)
     empresa.empleados[-1].marcar_entrada(empresa,nuevo_operador.password)
 
-with open("empleados.json","w",encoding="utf-8") as archivo:
-    empleados=[{"type":type(i).__name__,"content":str(i.__dict__)} for i in empresa.empleados]
-    serializable={}
-    for i in empresa.__dict__:
-        try:
-            content=str(empresa.__dict__[i].__dict__)
-        except:
-            content=str(empresa.__dict__[i])
-        serializable[i]={"type":type(i).__name__,"content":content}
-    serializable["empleados"]=empleados
-    pprint(serializable)
+        
+print(propietario.password)
+#Para permanencia de datos, se puede convertir en un archivo json, similar a un archivo en un sistema noSQL
+#los datos quedaron cargados con anterioridad por lo que no es necesario correr extract
+#si cargan desde los datos obtendran los mismos resultados que los generados en ejecución
+#extract(empresa)
+empresa_load=load()
+pprint(empresa.__dict__)
+pprint(empresa_load.__dict__)
 
-    json.dump(serializable,archivo,ensure_ascii=False,indent=4)
-#Agregaremos 10 usuarios nuevo desde el archivo
-#todos seran trabajadores y seran añadidos por el gerente
+
+#Comprobamos que los datos son los mismos
+#Las contraseñas pueden ser distintas porque no se consideraron para el ejemplo
+print(empresa.__dict__==empresa_load.__dict__)
