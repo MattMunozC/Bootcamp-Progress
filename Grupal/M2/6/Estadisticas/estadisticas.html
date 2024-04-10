@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadisticas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css">
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
+    <link rel="shortcut icon" href="https://png.pngtree.com/png-clipart/20220714/original/pngtree-phoenix-bird-logo-with-flaming-fire-body-for-game-team-png-image_8357995.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad Vendida</th>
+                <th>Precio Unitario ($)</th>
+                <th>Ingresos Totales ($)</th>
+                <th>Categoría</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Camiseta</td>
+                <td>120</td>
+                <td>15</td>
+                <td>1,800</td>
+                <td>Ropa</td>
+            </tr>
+            <tr>
+                <td>Zapatos</td>
+                <td>80</td>
+                <td>40</td>
+                <td>3,200</td>
+                <td>Calzado</td>
+            </tr>
+            <tr>
+                <td>Pantalones</td>
+                <td>65</td>
+                <td>25</td>
+                <td>1,625</td>
+                <td>Ropa</td>
+            </tr>
+            <tr>
+                <td>Reloj</td>
+                <td>30</td>
+                <td>50</td>
+                <td>1,500</td>
+                <td>Accesorios</td>
+            </tr>
+            <tr>
+                <td>Gorra</td>
+                <td>45</td>
+                <td>10</td>
+                <td>450</td>
+                <td>Accesorios</td>
+            </tr>
+            <tr>
+                <td>Blusa</td>
+                <td>90</td>
+                <td>20</td>
+                <td>1,800</td>
+                <td>Ropa</td>
+            </tr>
+            <tr>
+                <td>Bufanda</td>
+                <td>20</td>
+                <td>15</td>
+                <td>300</td>
+                <td>Accesorios</td>
+            </tr>
+            <tr>
+                <td>Botas</td>
+                <td>50</td>
+                <td>35</td>
+                <td>1,750</td>
+                <td>Calzado</td>
+            </tr>
+            <tr>
+                <td>Chaqueta</td>
+                <td>40</td>
+                <td>60</td>
+                <td>2,400</td>
+                <td>Ropa</td>
+            </tr>
+            <tr>
+                <td>Collar</td>
+                <td>15</td>
+                <td>25</td>
+                <td>375</td>
+                <td>Accesorios</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+</body>
+<script>
+function fun(){
+    let table = new DataTable('#myTable');
+}
+</script>
+</html>

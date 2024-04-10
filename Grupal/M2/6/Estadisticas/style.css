@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Madimi+One&display=swap');
+:root{
+    --main-color:linear-gradient(180deg, rgb(70, 8, 255) 27%, rgba(255,8,8,1) 90%, rgba(255,8,8,1) 100%);
+}
+body{
+    margin: 0;
+    font-family: "Madimi One", sans-serif;
+    background: rgb(251, 238, 255);
+    height: 100vh;
+}
+body{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+thead tr th{
+    background-color: var(--main-color);
+}
