@@ -3,9 +3,6 @@ import random
 from abc import ABC, abstractmethod
 #Trabajo hecho por:
 #   Matias Muñoz 
-#   Sebastian Trejo
-#   Daniel Barrera
-#   Eduardo Muñoz
 class Usuario(ABC):
     def __init__(self,nombre:str,apellido:str):
         self.nombre=nombre
@@ -105,9 +102,12 @@ class Vendedor(Usuario):
             for producto in producto:
                 self.vender(producto,cliente,boleta=boleta)
         return boleta
-class Envio(Boleta):
+class OrdenCompra(Boleta):
+    id=0
     def __init__(self, cliente: Cliente, vendedor,productos,estado="Por enviar"):
         super().__init__(cliente, vendedor)
+        OrdenCompra.id+=1
+        self.id_compra=OrdenCompra.id
         self.productos=productos
         self.estado=estado
 class Electrodomestico(Producto):
@@ -120,6 +120,40 @@ class Libro(Producto):
         super().__init__(SKU, nombre, categoria, proveedor, stock, valor_neto, estado)
     def __str__(self):
         return super().__str__()
+    
+class almacenamiento():
+    def __init__(self)->None:
+        self.inventario=[]
+    def buscar_producto(self,producto,return_index=False):
+        for count,i in enumerate(self.inventario):
+            if i[0]==producto:
+                if return_index: return count
+                return i
+        return None
+    def agregar_producto():
+        pass
+
+class Bodega(almacenamiento):
+    def __init__(self) -> None:
+        super().__init__()
+    def agregar_producto(self,producto:Producto,cantidad:int):
+        self.inventario.append((producto,cantidad))
+class Sucursal(almacenamiento):
+    def __init__(self) -> None:
+        super().__init__()
+        self.bodega=Bodega()
+    def agregar_producto(self,producto:Producto,cantidad,bodega=False):
+        if bodega:
+            self.bodega.agregar_producto(producto,cantidad)
+        else:
+            self.inventario.append((producto,cantidad))
+    def verificar_existencia(self,producto):
+        producto,cantidad=self.buscar_producto(producto)
+        if cantidad<50:
+            _,stock_bodega=self.bodega.buscar_producto(producto)
+            if stock_bodega>300:
+                self.bodega.inventario[self.bodega.buscar_producto(producto,True)][1]=stock_bodega-300
+                self.inventario[self.bodega.buscar_producto(producto,True)][1]=cantidad+300
 
 correo=lambda nombre,apellido:f"{nombre}.{apellido}@gmail.com"
 cliente1=Cliente(1,"pedro","perez",correo("pedro","perez"),datetime.now())
