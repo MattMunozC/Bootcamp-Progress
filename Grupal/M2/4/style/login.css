@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+25&display=swap');
+.backdrop{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("..\\assets\\ss2o0uf1.bmp");
+    background-size:cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    font-family: "Jersey 25", sans-serif;
+    height: 70vh;
+    aspect-ratio: 3/4;
+    background-color: rgba(255, 255, 255, 0.585);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    animation: pop-in 0.2s ease-in;
+}
+input{
+    margin-bottom: 10vh;
+}
+a{
+    text-align: end;
+}
+
+@keyframes pop-in {
+    0%{
+        transform: scale(0.1);
+    }
+    80%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+    
+}

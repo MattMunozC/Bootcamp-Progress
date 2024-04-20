@@ -6,15 +6,13 @@
 body{
     margin: 0;
     font-family: "Madimi One", sans-serif;
-    background: rgb(222,247,247);
+    background: rgb(237, 222, 247);
 
 }
 .header{
     color: white;
     background: rgb(255,132,8);
     background: linear-gradient(180deg, rgb(78, 8, 255) 27%, rgba(255,8,8,1) 90%, rgba(255,8,8,1) 100%);
-    background-image: url('../Assets/360_F_484111532_W0WOkKeXQzF75XusA7R8e3llIDXqyCFm.jpg');
-    background-repeat: no-repeat;
     background-size: cover;
 }
 .logo-text{
@@ -104,9 +102,7 @@ input {
         z-index: 3;
     }
     .header>h2{
-        background-image: url('../Assets/101683800-circuit-board-on-white-background-high-tech-technology-background-texture-pattern-abstract.jpg');
         
-        color: black;
         padding: 10px;
         margin: 10px;
         border-radius: 10px;

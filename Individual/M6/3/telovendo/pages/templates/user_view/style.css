@@ -1,0 +1,22 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+.viewport{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    bottom: -95vh;
+}
+footer{
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+
+    border: 1px solid #ccc;
+    width: 100vw;
+    height: 5vh;
+    z-index: 1000;
+}
