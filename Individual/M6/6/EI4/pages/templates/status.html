@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Usuario: {{user.username}}, {{user.age}}</h1>
+    <h2>Nombre: {{user.first_name}} {{user.last_name}}</h2>
+    <h3>Correo: {{user.email}}</h3>
+    {%if child%}
+        <h4>Este usuario es un niño</h4>
+    {%else%}
+        <h4>Este usuario es un adulto</h4>
+    {%endif%}
+</body>
+</html>
