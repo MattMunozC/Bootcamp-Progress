@@ -1,0 +1,72 @@
+{% include './components/head.html'%}
+<body>
+
+    {% include './components/header.html'%}
+    <section style="position: fixed;
+    top: 10%;">
+        <h1 style="text-align: center; width: 100vw;">Clientes</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Ciudad Natal</th>
+                    <th>Tier</th>
+                    <th>Fecha de registro</th>
+                    <th>Anotaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {%for client in clients%}
+                <tr>
+                    <td>
+                        {{client.Nombre}}
+                    </td>
+                    <td>
+                        {{client.Apellido}}
+                    </td>
+                    <td>
+                        {{client.Correo}}
+                    </td>
+                    <td>
+                        {{client.Ciudad_natal}}
+                    </td>
+                    <td>
+                        {{client.Tier}}
+                    </td>
+                    <td>
+                        {{client.Registrado_en}}
+                    </td>
+                    
+                    <td>
+                        {%if client.Deuda%}
+                        <p>Este cliente presenta deudas</p>
+                        {%endif%}
+                    </td>
+                </tr>
+                <h2>{{client.nombre}}</h2>
+            {%endfor%}
+            </tbody>
+        </table>
+
+    </section>
+
+
+    {%include './components/footer.html'%}
+</body>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</html>
