@@ -1,0 +1,12 @@
+{%include './components/head.html'%}
+<body>
+    {%include './components/header.html'%}
+    <section>
+        <h1>Registrar Cliente</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </section>
+    {%include './components/footer.html'%}
+</body>
