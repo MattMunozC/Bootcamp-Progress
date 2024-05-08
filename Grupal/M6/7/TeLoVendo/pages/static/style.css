@@ -1,0 +1,165 @@
+:root{
+    --main-color:linear-gradient(180deg, rgba(255,132,8,1) 27%, rgba(255,8,8,1) 90%, rgba(255,8,8,1) 100%);
+}
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(222,247,247);
+
+}
+.header{
+    background: rgb(255,132,8);
+    background: linear-gradient(180deg, rgba(255,132,8,1) 27%, rgba(255,8,8,1) 90%, rgba(255,8,8,1) 100%);
+    position: fixed;
+    top:0;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.092);
+    font-size: 2vh;
+}
+.logo{
+    height: 70%;
+    position: relative;
+    left: 0;
+}
+div#logo{
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 5%;
+    margin: 10px;
+}
+.logo-text{
+    color: white;
+    font-weight:bolder;
+    font-size: 50%;
+}
+#info{
+    position: fixed;
+    left: 24%;
+    bottom: 12%;
+}
+section#reviews{
+
+    position: fixed;
+    width: 25%;
+    right: 10px;
+    z-index: -1;
+    height: 40%;
+    overflow: hidden;
+    top: 10%;
+    margin:1%;
+}
+.review-container{
+    display: grid;
+    margin: 10px;
+    grid-template-rows: 1fr 1fr;
+    align-content: center;
+    text-align: center;
+}
+.more-info{
+    position: fixed;
+    left: 24%;
+    top: 38%;
+    width: 30%;
+    aspect-ratio: 36/9;
+    background: var(--main-color);
+    color: white;
+    font-weight: bolder;
+    border-radius: 31px;
+    font-size: 120%;
+}
+.nav-bar{
+    display: flex;
+    position: absolute;
+    top: 0;
+    height: 10%;
+    right: 0;
+    flex-direction: row;
+    width: fit-content;
+}
+div.nav-option{
+    text-align: center;
+    margin-left: 5%;
+    height: 50%;
+    align-content: center;
+    position: relative;
+    top:50%;
+    transform: translate(0%,-25%);
+    text-decoration: none;
+    color: white;
+}
+.nav-option>a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-option>a:hover{
+    color:rgb(160, 4, 4);
+}
+#imagen {
+    float:left;
+    width:60%;
+    text-align: center;
+    }
+#formulario-beneficios {
+    float:right;
+    width:40%;
+}
+.map{
+    position:fixed;
+    left: 10px;
+    bottom: 13%;
+    height: 50%;
+}
+.review{
+    margin: 1px;
+    padding: 5px;
+    background: rgb(255,132,8);
+    background: linear-gradient(180deg, rgba(255,132,8,1) 27%, rgba(255,8,8,1) 90%, rgba(255,8,8,1) 100%);
+    border-radius: 10px;
+    color: white;
+    font-size: 10px
+}
+.marca{
+    position: relative;
+    left: 50%;
+}
+svg#pdf-file-svg{
+    width: 10%;
+    position: relative;
+    top:10%;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(211deg) brightness(104%) contrast(102%);
+}
+img{
+    height: auto;
+}
+footer#landingpage-footer{
+    position: fixed;
+    bottom: 0;
+    align-content: center;
+    display: flex;
+    width: 100%;
+}
+.social-media{
+    position: fixed;
+    width: 30%;
+    top: 56%;
+    left: 24%;
+    height: 6%;
+    display: grid;
+    grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+
+}
+.social-media>a>img{
+    height: 100%;
+}
+.social-media>a{
+    height: 1%;
+}
+.sponsor{
+    position: fixed;width: 100%;bottom: 5%;display: grid; grid-template-columns: 33% 33% 33%; align-items: center; align-content: center;
+}
