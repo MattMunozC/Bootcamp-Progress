@@ -78,3 +78,14 @@ def edit_task(request,task_name):
         "styles":["task_new_task"],
         "action_taken":f"editando {task_name}"
     })
+
+def mark_as_complete(request,task_name):
+    try:
+        user=User.objects.get(username=request.user.username)
+        task=Task.objects.get(owner=user,title=task_name)
+        status=Status.objects.get(name="Completado")
+        task.status=status
+        task.save()
+        return redirect("/home")
+    except Task.DoesNotExist:
+        return redirect("/home")

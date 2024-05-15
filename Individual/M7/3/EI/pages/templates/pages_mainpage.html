@@ -25,7 +25,9 @@
                 <h1>{{task.title}}</h1>
                 <h2>{{task.content}}</h2>
                 <h3>Status: {{task.status}}</h3>
-                {%if task.expire_date|is_expired%}
+                {%if task.status|is_complete%}
+                    <h1 class="expired" style="color:  {{task.tag.color}};">Completado</h1>
+                {%elif task.expire_date|is_expired%}
                     <h1 class="expired" style="color:  {{task.tag.color}};">Atrasado</h1>
                 {%endif%}
                 <h1></h1>

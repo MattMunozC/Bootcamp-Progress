@@ -2,6 +2,12 @@
 <body>
     {%load filters%}
     {%include 'components/nav.html'%}
+    <div style="display: flex; flex-direction: row; justify-content: space-between;padding: 0px 10px 0px;">
+        
+        <a href="./{{task.title}}/borrar">borrar</a>
+        <a href="./{{task.title}}/editar">Editar</a>
+        <a href="./{{task.title}}/marcar">marcar como completado</a>
+    </div>
     <div class="full-view">
         <div class="task" style="position: relative; background-color: {{task.tag.color}}91;">
             <h1>{{task.title}}</h1>
@@ -16,9 +22,6 @@
                 <h4>Fecha limite: {{task.expire_date}}</h4>
             </div>
         </div>
-        <div style="display: flex; flex-direction: row; justify-content: space-between;padding: 0px 10px 0px;">
-            <a href="./{{task.title}}/borrar">borrar</a>
-            <a href="./{{task.title}}/editar">Editar</a>
-        </div>
+
     </div>
 </body>
