@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import add_product,admin_page,sell_product
+from .views import admin_view,take_order,submit_order
 urlpatterns=[
-    path("",admin_page),
-    path("agregar_producto",add_product),
-    path("vender_producto",sell_product)
+    path("",admin_view),
+    path("takeOrder",take_order),
+    path("submitOrder",submit_order)
+   
 ]

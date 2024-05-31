@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -39,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'checkout',
-    'retail'
+    'retail',
+    'admin'
 ]
 
 MIDDLEWARE = [
@@ -128,7 +128,7 @@ STATICFILES_DIRS= [
 
 MEDIA_ROOT ='media/'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -143,3 +143,4 @@ AUTHENTICATION_BACKENDS = [
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL="/account/login"
 
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880

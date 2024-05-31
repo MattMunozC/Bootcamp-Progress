@@ -7,9 +7,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from retail.models import Product
 # Create your models here.
 class User(AbstractUser):
-    profile_pic=models.ImageField(blank=False,default=settings.MEDIA_ROOT)
-class Client(models.Model):
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    profile_pic=models.ImageField(blank=True)
 class Region(models.Model):
     abb_name=models.CharField(max_length=100)
     name=models.CharField(max_length=100)
@@ -23,22 +21,14 @@ class Address(models.Model):
     locality=models.CharField(max_length=100)
     postal_code=models.IntegerField(blank=False)
     city=models.ForeignKey(City,on_delete=models.SET_NULL,null=True)
-    client=models.ForeignKey(Client,on_delete=models.CASCADE)
+    client=models.ForeignKey(User,on_delete=models.CASCADE)
 
 class Status(models.Model):
     name=models.CharField(max_length=100)
 
-class UserHistorial(models.Model):
-    product=models.ForeignKey(Product,on_delete=models.SET_NULL,null=True)
-    client=models.ForeignKey(Client,on_delete=models.CASCADE)
-    date=models.DateTimeField(blank=False,default=now)
-    status=models.ForeignKey(Status,on_delete=models.SET_NULL,null=True)
-    class Meta:
-        unique_together=["product","client","date"]
-
 class Opinion(models.Model):
     product=models.ForeignKey(Product,on_delete=models.CASCADE)
-    client=models.ForeignKey(Client,on_delete=models.CASCADE)
+    client=models.ForeignKey(User,on_delete=models.CASCADE)
     rate=models.IntegerField(default=1,validators=[
         MaxValueValidator(5),
         MinValueValidator(0)

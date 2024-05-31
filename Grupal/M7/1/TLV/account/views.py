@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.utils.timezone import now
-from .forms import userForm
-from .models import User,Client
+from .forms import userForm,AddressForm
+from .models import User
+from checkout.models import AnonymousOrder
 # Create your views here.
 def logout_view(request):
     logout(request)
@@ -15,8 +16,7 @@ def signup(request):
             data=form.cleaned_data
             try:
                 user=User.objects.get(username=data["username"])
-                client=Client.objects.get(user=user)
-            except User.DoesNotExist or Client.DoesNotExist:
+            except User.DoesNotExist:
                 user=User.objects.create(first_name=data["first_name"],
                                             last_name=data["last_name"],
                                             username=data['username'],
@@ -27,9 +27,8 @@ def signup(request):
                                             is_superuser=False,
                                             is_staff=False
                                         )
-                client=Client.objects.create(user=user)
+            
                 user.save()
-                client.save()
                 return redirect("/account/login")
     return render(request,"registration/signup.html",context=
                   {
@@ -38,5 +37,29 @@ def signup(request):
                       "styles":[
                           "account_login",
                           "account_signup"
+                      ]
+                  })
+def profile(request):
+    if request.user.is_staff:
+        history=AnonymousOrder.objects.filter(seller=request.user).all()
+    else:
+        history=None
+    return render(request,"profile.html",context=
+                  {
+                        "DocumentName":"Perfil",
+                        "history":history,
+                        "styles":[
+                            "account_profile"
+                        ]
+                  })
+def add_direction(request):
+    return render(request,"add_direction.html",context=
+                  {
+                      "DocumentName":"Agregar Dirección",
+                      "forms":{
+                            "address":AddressForm()
+                      },
+                      "styles":[
+                          "account_profile"
                       ]
                   })

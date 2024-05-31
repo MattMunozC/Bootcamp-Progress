@@ -7,8 +7,8 @@ def permission_required(func,exclusive=True):
     return wrapper
 
 def superuser_required(func):
+    
     def wrapper(request):
-        
         if request.user.is_superuser:
             return func(request)
         return render(request,"status/403.html",status=403)
@@ -16,9 +16,9 @@ def superuser_required(func):
 
 def staff_required(func):
     def wrapper(request):
-        if request.user.is_staff:
-            return func(request)
-        return render(request,"status/403.html",status=403)
+        if not request.user.is_staff:
+            return render(request,"status/403.html",status=403)
+        return func(request)
     return wrapper
 
 def debug(status):
