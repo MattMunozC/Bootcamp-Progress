@@ -136,3 +136,14 @@ def submit_order(request):
 
 @staff_required
 def edit_order(request,ordertype,id):
+    if ordertype=="Anonymous":
+        order=AnonymousOrder.objects.get(id=id)
+        orderDetail=AnonymousOrderDetail.objects.filter(anonymousorder=order)
+    else:
+        order=Checkout.objects.get(id=id)
+        orderDetail=CheckoutDetail.objects.filter(checkout=order)
+    return render(request,"admin_edit_order.html",context={
+        "DocumentName":"Editar Pedido",
+        "order":order,
+        "orderdetail":orderDetail
+    })
