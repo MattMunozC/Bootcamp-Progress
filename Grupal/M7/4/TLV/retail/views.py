@@ -11,8 +11,11 @@ from datetime import timedelta
 
 # Create your views here.
 def home(request):
+    try:
 
-    cart_len=len(Shopping.objects.filter(client=request.user))
+        cart_len=len(Shopping.objects.filter(client=request.user))
+    except:
+        cart_len=0
     product=Product.objects.all()
     
     return render(request,"retail_home.html",context={

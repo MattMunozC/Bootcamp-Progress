@@ -12,10 +12,10 @@ from datetime import timedelta
 # Create your views here.
 def home(request):
     try:
-
         cart_len=len(Shopping.objects.filter(client=request.user))
     except:
         cart_len=0
+    
     product=Product.objects.all()
     
     return render(request,"retail_home.html",context={
@@ -31,6 +31,7 @@ def home(request):
 
 @login_required
 def shopping_cart(request):
+    
     shopping=Shopping.objects.filter(client=request.user).all()
     total=sum([i.product.price*i.quantity for i in shopping])
     addresses=Address.objects.filter(client=request.user).all()
@@ -44,4 +45,3 @@ def shopping_cart(request):
         "paying_method":paying_methods,
         "estimated_day": now()+timedelta(days=14)
     })
-
